@@ -155,15 +155,18 @@
                 );
       
       $commits = $this->active_repository->getBranchTagCommits($branch_tag, $page);
-
+      
       // Group commits by days
       $grouped_commits = Array();
       $date_format = 'F j. Y';
       foreach($commits as $commit) {
         $commit->short_id = substr($commit->id, 0, 9).'...'.substr($commit->id, -9);
-        $commit->message = $this->analyzeCommitMessage($commit->message);
+        if(!isset($commit->analyzed_msg)) {
+          $commit->analyzed_message = $this->analyzeCommitMessage($commit->message);
+        }
         
         $commit_formatted_date = date($date_format, strtotime($commit->committed_date));
+        
         if(count($grouped_commits) == 0 || !isset($grouped_commits[$commit_formatted_date])) {
           $grouped_commits[$commit_formatted_date] = Array($commit);
         } else {

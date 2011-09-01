@@ -9,8 +9,8 @@
 			<a href="{$active_repository->getHistoryUrl()}&amp;page={$next_page}&amp;branch_tag={$branch_tag}">Next</a>
 		</span>
 	</p>
-	<form action="{$active_repository->getHistoryUrl()}" method="get">
-		<p class="top" style="float:right;-moz-box-shadow: 1px 1px 1px #DEDEDE;border: 1px solid #DEDEDE;border-radius:5px;padding:5px 20px;">
+	<form action="{$active_repository->getHistoryUrl()}" method="get" id="branch_tag_form">
+		<p class="top">
 				<span style="color:#333;">
 							<strong>Branch/Tag: </strong>
 							<select style="font-size:10px;margin-left:7px;" name="branch_tag">
