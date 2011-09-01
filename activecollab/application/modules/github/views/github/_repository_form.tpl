@@ -1,5 +1,5 @@
 {wrap field=name}
-  {label for=repositoryName required=yes}{lang}Name{/lang}{/label}
+  {label for=repositoryName required=yes}{lang}Display Name (for activeCollab listing page):{/lang}{/label}
   {text_field name='repository[name]' value=$repository_data.name id=repositoryName class='title required'}
 {/wrap}
 
@@ -7,19 +7,20 @@
   {label for=repositoryUrl required=yes}{lang}URL of Github Repository Page (e.g. https://github.com/UCF/Today):{/lang}{/label}
   {text_field name='repository[url]' value=$repository_data.url id=repositoryUrl class='title required'}
 {/wrap}
-
-<p><strong>Is this a private repository?</strong></p>
-<input type="checkbox" id="private_repo" />
+<div id="private_repo_toggle">
+	<p><strong>This is a private repository:</strong></p>
+	<input type="checkbox" id="private_repo" />
+</div>
 <div id="private_repo_creds">
 	<div class="col">
 		{wrap field=username}
-		  {label for=repositoryUsername required=yes}{lang}Username (not organization name):{/lang}{/label}
+		  {label for=repositoryUsername required=yes}{lang}Github Username (not organization name):{/lang}{/label}
 		  {text_field name='repository[username]' style='width:250px' value=$repository_data.username id=repositoryUsername class='title'}
 		{/wrap}
 	</div>
 	<div class="col">
 		{wrap field=key}
-		  {label for=repositoryKey required=no}{lang}API Token:{/lang}{/label}
+		  {label for=repositoryKey required=yes}{lang}Github API Token:{/lang}{/label}
 		  {text_field name='repository[key]' style='width:250px' value=$repository_data.key id=repositoryKey class='title'}
 		{/wrap}
 	</div>

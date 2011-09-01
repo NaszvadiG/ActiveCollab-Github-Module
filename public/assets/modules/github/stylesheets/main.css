@@ -11,3 +11,4 @@
                       }
 
 #private_repo {padding-left:0;margin-left:0;}
+#private_repo_toggle > p {display:inline;}
