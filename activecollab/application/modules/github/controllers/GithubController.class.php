@@ -74,7 +74,7 @@
 			$repositories = GithubRepositories::findByProjectId($this->active_project->getId());
 			
 			foreach($repositories as $repo) {
-				if(!is_null($repo) && !is_null($repo->last_commit) && !preg_match('/\d+/', $repo->last_commit->committed_date)) {
+				if(!is_null($repo) && !is_null($repo->last_commit) && !preg_match('/^\d+$/', $repo->last_commit->committed_date)) {
 					$repo->last_commit->committed_date = strtotime($repo->last_commit->committed_date);
 				}
 			}
