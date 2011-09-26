@@ -67,7 +67,7 @@
 		 * @return null
 		 */
 		function index() {			
-			if(Repository::canAdd($this->logged_user, $this->active_project)) {
+			if(GithubRepository::canAdd($this->logged_user, $this->active_project)) {
 				$this->wireframe->addPageAction(lang('Add Github Repository'), github_module_add_repository_url($this->active_project));
 			} // if
 			
