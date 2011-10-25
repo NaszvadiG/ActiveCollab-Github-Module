@@ -93,7 +93,7 @@
 		 **/
 		function add()
 		{
-			if(!Repository::canAdd($this->logged_user, $this->active_project)) {
+			if(!GithubRepository::canAdd($this->logged_user, $this->active_project)) {
 				$this->httpError(HTTP_ERR_FORBIDDEN);
 			} // if
 			
